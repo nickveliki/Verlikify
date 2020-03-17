@@ -6,7 +6,7 @@ let privateKey;
 
 module.exports={
     setup:(location)=>{
-        location = path.join(__dirname.replace(`node_modules${path.sep}verlikify${path.sep}`,""), location);
+        location = path.join(__dirname, location).replace(`node_modules${path.sep}verlikify${path.sep}`,"");
         if (!fs.existsSync(location)){
             fs.writeFileSync(location, JSON.stringify(crypto.generateKeyPairSync("rsa", {
                 modulusLength: 4096, 
