@@ -1,0 +1,25 @@
+{
+  "name": "verlikify",
+  "version": "1.0.0",
+  "description": "RSA sign and verify",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickveliki/Verlikify.git"
+  },
+  "keywords": [
+    "RSA",
+    "sign",
+    "verify",
+    "nogyp"
+  ],
+  "author": "nicolai veliki",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nickveliki/Verlikify/issues"
+  },
+  "homepage": "https://github.com/nickveliki/Verlikify#readme"
+}
