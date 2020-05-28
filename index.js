@@ -23,6 +23,7 @@ module.exports={
         const res = JSON.parse(fs.readFileSync(location).toString());
         publicKey=res.publicKey;
         privateKey=res.privateKey;
+        return publicKey;
     },
     sign:(sig)=>{
     const signer = crypto.createSign("SHA256");
