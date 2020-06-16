@@ -31,10 +31,10 @@ module.exports={
     signer.end();
     return signer.sign(privateKey).toString("base64");
 },
-verify:(sig, comp)=>{
+verify:(sig, comp, encoding="base64")=>{
     const verifier = crypto.createVerify("SHA256");
     verifier.write(comp);
     verifier.end();
-    return verifier.verify(publicKey, Buffer.from(sig, "base64"));
+    return verifier.verify(publicKey, Buffer.from(sig, encoding));
 }
 }
