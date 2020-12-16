@@ -5,20 +5,20 @@ let publicKey;
 let privateKey;
 
 module.exports={
-    setup:(location)=>{
-        location = path.join(__dirname, location).replace(`node_modules${path.sep}verlikify${path.sep}`,"");
+    setup:(location, algorithm="rsa", options={
+        modulusLength: 4096, 
+        publicKeyEncoding: {
+            type: "spki",
+            format:"pem"
+        },
+        privateKeyEncoding:{
+            type: "pkcs8",
+            format: "pem"
+        }
+    })=>{
+        location = path.join(path.resolve("./"), location);
         if (!fs.existsSync(location)){
-            fs.writeFileSync(location, JSON.stringify(crypto.generateKeyPairSync("rsa", {
-                modulusLength: 4096, 
-                publicKeyEncoding: {
-                    type: "spki",
-                    format:"pem"
-                },
-                privateKeyEncoding:{
-                    type: "pkcs8",
-                    format: "pem"
-                }
-            })))
+            fs.writeFileSync(location, JSON.stringify(crypto.generateKeyPairSync(algorithm, options)))
         }
         const res = JSON.parse(fs.readFileSync(location).toString());
         publicKey=res.publicKey;
