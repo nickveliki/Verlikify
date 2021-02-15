@@ -31,7 +31,7 @@ module.exports={
     signer.end();
     return signer.sign(privateKey).toString("base64");
 },
-verify:(sig, comp, encoding="base64")=>{
+verify:(comp, sig, encoding="base64")=>{
     const verifier = crypto.createVerify("SHA256");
     verifier.write(comp);
     verifier.end();
